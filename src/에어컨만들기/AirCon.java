@@ -1,6 +1,7 @@
 package 에어컨만들기;
 
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class AirCon {
     private boolean isPower; // 전원 ON/OFF
@@ -40,6 +41,74 @@ public class AirCon {
         System.out.println("바람 세기 : " + windStr[windStep]);
     }
 
-    
+    //에어컨 상태를 설정
+    public void setAirConState() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("현재 온도가 " + curTemp + "도 입니다.");
+        System.out.println("온도를 설정하세요 : " );
+        setTemp = sc.nextInt();
+        System.out.println("설정 온도는 " + setTemp + "도 입니다.");
+        System.out.println("바람 세기를 설정 하세요 : ");
+        windStep = sc.nextInt();
 
+        if(curTemp > setTemp) { // 현재가 더운 상태, 온도를 내리라는 의미
+            System.out.println("Cooler가 동작합니다. ");
+            isCooler = true;
+            isHeater = false;
+        } else if (curTemp < setTemp) { // 현재가 추운 상태, 온도를 높이라는 의미
+            isCooler = false;
+            isHeater = true;
+        } else {
+            isCooler = false;
+            isHeater = false;
+        }
+    }
+
+    public boolean isPower() {
+        return isPower;
+    }
+
+    public void setPower(boolean power) {
+        isPower = power;
+    }
+
+    public int getSetTemp() {
+        return setTemp;
+    }
+
+    public void setSetTemp(int setTemp) {
+        this.setTemp = setTemp;
+    }
+
+    public int getCurTemp() {
+        return curTemp;
+    }
+
+    public void setCurTemp(int n) { // 현재온도는  현재온도에서 입력된 값의 크기에서 조정해서 설정
+        this.curTemp += n;
+    }
+
+    public boolean isCooler() {
+        return isCooler;
+    }
+
+    public void setCooler(boolean cooler) {
+        isCooler = cooler;
+    }
+
+    public boolean isHeater() {
+        return isHeater;
+    }
+
+    public void setHeater(boolean heater) {
+        isHeater = heater;
+    }
+
+    public int getWindStep() {
+        return windStep;
+    }
+
+    public void setWindStep(int windStep) {
+        this.windStep = windStep;
+    }
 }
