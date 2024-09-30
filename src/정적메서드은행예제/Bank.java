@@ -17,5 +17,21 @@ public class Bank {
         account += dep; // 잔액에 입금 금액을 더해서 잔액을 누적
         System.out.println(dep+ "을 입금 했습니다. ");
     }
-    public void 
+    public void setWithdraw(final int with) {
+        if(with > account) {
+            System.out.println("잔액이 부족합니다.");
+        } else {
+            account -= with;
+            System.out.println(with +"을 출금 하였습니다.");
+        }
+    }
+
+    public String getBank() {
+        return bank;
+    }
+
+    public int getAccount() {
+        return account;
+    }
+
 }

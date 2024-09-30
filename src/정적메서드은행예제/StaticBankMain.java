@@ -7,6 +7,17 @@ package 정적메서드은행예제;
 
 public class StaticBankMain {
     public static void main(String[] args) {
+        Bank kakao = new Bank("카카오", 1000);
+        Bank shinhan = new Bank("신한", 1000);
+        Bank nh = new Bank("농협", 500);
+        kakao.setDiposit(3000);
+        kakao.setWithdraw(2000);
+        System.out.println(kakao.getBank() + "에 " + kakao.getAccount() + "이 있습니다.");
 
+        System.out.println("계좌가 " + Bank.getCount() + "개설되었습니다.");
+
+        System.out.println(Util.max(100, 200));
+        System.out.println(Util.isEven(123));
+        System.out.println(Util.getCurrentDate("20240930"));
     }
 }
