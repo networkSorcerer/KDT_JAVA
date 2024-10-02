@@ -1,15 +1,15 @@
 package 디폴트메서드;
 
-public class Audio implements RemoteControl{
-    private int volume; //인스턴스 필드 (객체로 만들어진 변수)
+public class Television implements RemoteControl{
+    private  int volume;
     @Override
     public void turnON() {
-        System.out.println("Audio를 켭니다.");
+        System.out.println("TV를 켭니다.");
     }
 
     @Override
     public void turnOFF() {
-        System.out.println("Audio를 끕니다.");
+        System.out.println("TV를 끕니다.");
     }
 
     @Override
@@ -23,12 +23,7 @@ public class Audio implements RemoteControl{
         }
     }
     void getInfo() {
-        System.out.println("오디오 입니다.");
+        System.out.println("TV 입니다.");
         System.out.println("현재 볼륨은 " + volume + "입니다.");
-    }
-    @Override
-    public void setMute(boolean mute) {
-        if(mute) System.out.println("오디오를 무음처리 합니다. ");
-        else System.out.println("오디오 무음 처리를 해제 합니다.");
     }
 }
