@@ -26,5 +26,31 @@ public class DefaultMethodMain {
             audio.getInfo();
             rc.setMute(true);
         }
+        RemoteControl rc2 = new RemoteControl() {
+            int volume;
+            @Override
+            public void turnON() {
+                System.out.println("PS의 전원을 켭니다.");
+            }
+
+            @Override
+            public void turnOFF() {
+                System.out.println("PS의 전원을 끕니다");
+            }
+
+            @Override
+            public void setVolume(int volume) {
+
+                if (volume > RemoteControl.MAX_VOLUME) {
+                    this.volume = RemoteControl.MAX_VOLUME;
+                } else if( volume < RemoteControl.MIN_VOLUME) {
+                    this.volume = RemoteControl.MIN_VOLUME;
+                } else {
+                    this.volume = volume;
+                }
+            }
+        };
+        rc2.turnON();
+        rc2.setVolume(30);
     }
 }
