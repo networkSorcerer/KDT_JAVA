@@ -1,4 +1,7 @@
 package 인터페이스기본;
+
+import java.util.Scanner;
+
 // 인터페이스란? 자바에서 다중 상속을 지원하기 위해서 만들어짐
 // (자바는 다중 상속을 지원하지 않음)
 // 인터페이스는 개발에 있어서 설계명세서 개념이라고 생각하면 된다
@@ -10,6 +13,23 @@ package 인터페이스기본;
 // 인터페이스 문법을 사용하는 느슨한 결합관계를 달성하기 위해서 사용
 public class InterfaceMain {
     public static void main(String[] args) {
-
+        NetworkAdapter adapter;  // 객체화가 될 수 없음
+        Scanner sc = new Scanner(System.in);
+        System.out.print("연결할 네트워크 선택 : [1]WiFi [2]5G [3]LTE : ");
+        int num = sc.nextInt();
+        switch(num) {
+            case 1 :
+                adapter = new WiFi("KT Megapass");
+                adapter.connect();
+                break;
+            case 2 :
+                adapter = new FiveG("SK Telecom");
+                adapter.connect();
+                break;
+            case 3 :
+                adapter = new Lte("LG U+");
+                adapter.connect();
+                break;
+        }
     }
 }
