@@ -34,7 +34,7 @@ class Lte implements NetworkAdapter {
     }
     @Override
     public void connect() {
-        System.out.println(company + "Lte에 연결 되었습니다. ");
+        System.out.println(company + "LTE 에 연결 되었습니다. ");
     }
 }
 

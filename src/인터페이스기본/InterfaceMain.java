@@ -19,7 +19,7 @@ public class InterfaceMain {
         int num = sc.nextInt();
         switch(num) {
             case 1 :
-                adapter = new WiFi("KT Megapass");
+                adapter = new WiFi("KT Megapass ");
                 adapter.connect();
                 break;
             case 2 :
@@ -30,6 +30,8 @@ public class InterfaceMain {
                 adapter = new Lte("LG U+");
                 adapter.connect();
                 break;
+            default:
+                System.out.println("네트워크 선택이 잘못되었습니다.");
         }
     }
 }
