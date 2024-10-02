@@ -77,10 +77,10 @@ class CarCalculator implements Calculator {
 
         // 날씨에 따라 주행 시간 조정
         double time;
-        if (weatherSpeed == 2) {
+        if (weather == 2) {
             time = (calDistance / speed) * 1.2; // 날씨가 좋지 않을 경우, 주행 시간이 1.2배 증가
-        } else if (weatherSpeed == 3) {
-            time = (calDistance / speed) * 0.8; // 날씨가 좋을 경우, 주행 시간이 0.8배 감소
+        } else if (weather == 3) {
+            time = (calDistance / speed) * 1.4;
         } else {
             time = (calDistance / speed); // 일반 계산
         }
@@ -92,6 +92,5 @@ class CarCalculator implements Calculator {
 
         System.out.println("주행 시간 : " + time);
 
-        System.out.println("주행 시간 : " + time);
     }
 }

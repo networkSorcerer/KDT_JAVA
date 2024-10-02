@@ -13,6 +13,6 @@ public class Car {
     public final static String[] weatherList={"","맑음","비","눈"};
     public final static int[] distance = {0,400, 200,150, 300};
     public final static int[] fuelEfficiency ={0,8,12,5};
-    public final static double[] weatherSpeed ={0, 0.2,0.4};
+    public final static double[] weatherSpeed ={0, 0,0.2,0.4};
 }
 
