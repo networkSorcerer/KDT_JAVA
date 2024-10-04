@@ -12,7 +12,7 @@ public class CarMain {
             vehicle.weather();
             vehicle.setName();
             vehicle.carInfo();
-            vehicle.roundTripCount(); // 왕복횟수
+            //vehicle.roundTripCount(); // 왕복횟수
             // 총 비용
             // 총 주유 횟수
             // 총 이동 시간 :

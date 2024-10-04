@@ -1,9 +1,10 @@
 package 자동차만들기Ipad;
 
-import static 자동차만들기Ipad.Car.*;
+import static 자동차만들기Ipad.CarDB.*;
 
 public interface Calculator {
-    int fuel = 2000; // l당 비용
+    int fuelLPerCost = 2000; // l당 비용
+
 
     // 총 비용
     // 총 주유 횟수
@@ -11,6 +12,7 @@ public interface Calculator {
     void totalCost();
     void refueling();
     void travelTime();
+
 }
 
 class CarCalculator implements Calculator {
@@ -29,8 +31,8 @@ class CarCalculator implements Calculator {
         int calDistance = distance[goal];
         //System.out.println("거리도 나오나요? " + calDistance);// 목적지까지의 거리
         int carType = vehicle.getCarType(); // 차종 정보 가져오기
-        int fuelTank = Car.fuelTank[carType]; // 연료통
-        int eff = Car.fuelEfficiency[carType]; // 연비 정보
+        int fuelTank = CarDB.fuelTank[carType]; // 연료통
+        int eff = fuelEfficiency[carType]; // 연비 정보
 
         int requiredFuel = calDistance / eff; // 비용 계산
         int cost = requiredFuel * 2000;
@@ -43,9 +45,9 @@ class CarCalculator implements Calculator {
         int goal = vehicle.getGoal(); // 목표지 정보 가져오기
         int calDistance = distance[goal]; // 목적지까지의 거리
         int carType = vehicle.getCarType(); // 차종 정보 가져오기
-        int fuelTank = Car.fuelTank[carType]; // 연료통 용량
+        int fuelTank = CarDB.fuelTank[carType]; // 연료통 용량
         int op = vehicle.getOption(); // 옵션 정보
-        double eff = Car.fuelEfficiency[carType]; // 연비 정보
+        double eff = fuelEfficiency[carType]; // 연비 정보
 
         // 필요한 연료 계산
         double requiredFuel = calDistance / eff;
@@ -70,10 +72,10 @@ class CarCalculator implements Calculator {
         int goal = vehicle.getGoal(); // 목표지 정보 가져오기
         double calDistance = distance[goal]; // 목적지까지의 거리
         int carType = vehicle.getCarType(); // 차종 정보 가져오기
-        double speed = Car.realSpeed[carType]; // 속도 정보
+        double speed = realSpeed[carType]; // 속도 정보
         // 날씨 요건 검토 필요
         int weather = vehicle.getWeather();
-        double weatherSpeed = Car.weatherSpeed[weather];
+        double weatherSpeed = CarDB.weatherSpeed[weather];
 
         // 날씨에 따라 주행 시간 조정
         double time;
@@ -87,6 +89,13 @@ class CarCalculator implements Calculator {
 
 // 주행 시간 계산 옵션에 따른 추가 조정
         if (carType == 1 && vehicle.getOption() == 1) {
+            if (weather == 2) {
+                time = (calDistance / speed) * 1.2; // 날씨가 좋지 않을 경우, 주행 시간이 1.2배 증가
+            } else if (weather == 3) {
+                time = (calDistance / speed) * 1.4;
+            } else {
+                time = (calDistance / speed); // 일반 계산
+            }
             time *= 1.2; // 옵션이 ON인 경우, 주행 시간이 1.2배 증가
         }
 

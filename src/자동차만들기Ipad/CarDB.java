@@ -1,6 +1,6 @@
 package 자동차만들기Ipad;
 
-public class Car {
+public class CarDB {
     public final static String[] title = {"", "=====스포츠카=====","=====승용차=====","=====버스====="};
     public final static String [] speed = {"","250km","200km","150km"};
     public final static int [] realSpeed ={0,250,200,150};

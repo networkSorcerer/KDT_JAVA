@@ -3,7 +3,7 @@ package 자동차만들기Ipad;
 import java.text.NumberFormat;
 import java.util.Scanner;
 
-import static 자동차만들기Ipad.Car.*;
+import static 자동차만들기Ipad.CarDB.*;
 
 public class Vehicle {
     private Scanner sc;
