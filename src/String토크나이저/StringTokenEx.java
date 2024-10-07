@@ -12,7 +12,8 @@ import java.util.StringTokenizer;
 public class StringTokenEx {
     public static void main(String[] args) {
         //tokenFunc(); // 스트링 토커나이즈를 활용하는 방식 옛날 방식
-        splitFunc(); // 문자열의 split 을 이용하는 방식
+        //splitFunc(); // 문자열의 split 을 이용하는 방식
+        classFunc();
     }
     static  void tokenFunc() {
         Scanner sc = new Scanner(System.in);
@@ -34,4 +35,12 @@ public class StringTokenEx {
         String [] nameSub = name.split("[/,;]");
         System.out.println(Arrays.toString(nameSub));
     }
+    static void classFunc() {
+        Student student = new Student();
+        System.out.println(student.getClass());
+    }
+}
+
+class Student {
+    String name = "곰돌이 사육사";
 }
