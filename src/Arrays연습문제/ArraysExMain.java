@@ -18,10 +18,10 @@ public class ArraysExMain {
                     if(o1.length() == o2.length()){
                         return o1.compareTo(o2); // 사전순 정렬, 앞에 값이 큰 경우 양수 반환
                     }
-                    return -1; // 현상태 유지 
+                    return -1; // 현상태 유지
                 }
-
             }
         });
+        System.out.println(Arrays.toString(fruit));
     }
 }
