@@ -1,6 +1,8 @@
 package List인터페이스;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 // List 인터페이스는 ArrayList, Vector, Linked List에 상속을 주기 위한 인터페이스
@@ -14,6 +16,11 @@ public class ListBasicEx {
     public static void main(String[] args) {
 
         // List 인터페이스의 참조 변수로 ArrayList 생성된 객체를 참조 함
+        String[] fruitsArr = {"Watermelon", "Peach", "Cherry"};
+        //Arrays.asList() 배열을 리스트 변환하는 메서드
+        List<String> fixedList = Arrays.asList(fruitsArr);
+        System.out.println("Fixed List: " + fixedList);
+
         List<String> fruits = new ArrayList<>();
 
         // 요소 추가, 리스트 맨뒤에 요소를 추가
@@ -41,6 +48,24 @@ public class ListBasicEx {
         for(String e : fruits) {
             System.out.print(e + " ");
         }
-        
+        // 리스트 정렬하기
+        fruits.sort(Comparator.naturalOrder()); // 오름 차순
+        System.out.println("과일 목록 : " + fruits);
+        fruits.sort(Comparator.reverseOrder()); // 내림 차순
+
+        System.out.println("과일 목록 : " + fruits);
+        fruits.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                if(o1.length() > o2.length()) return 1;
+                else {
+                    if(o1.length() == o2.length()){
+                        return o1.compareTo(o2);
+                    }
+                    return -1;
+                }
+            }
+        });
+        System.out.println("과일 목록 : " + fruits);
     }
 }
