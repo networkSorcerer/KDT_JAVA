@@ -23,5 +23,24 @@ public class ListBasicEx {
 
         // 리스트 출력, toString() 메서드가 오버라이딩 되어있음
         System.out.println("과일 목록 : " + fruits.toString());
+
+        // 특정 인덱스에 요소 추가
+        fruits.add(1,"Grape");
+        System.out.println("과일 목록 : " + fruits);
+
+        // 요소 가져오기 (인덱스 접근)
+        System.out.println("과일 요소 : " + fruits.get(2));
+
+        //요소 제거 하기
+        fruits.remove(2);
+        System.out.println("과일 목록 : " + fruits);
+
+        // List 사이즈 확인
+        System.out.println("과일 목록 사이즈 : " + fruits.size());
+
+        for(String e : fruits) {
+            System.out.print(e + " ");
+        }
+        
     }
 }
