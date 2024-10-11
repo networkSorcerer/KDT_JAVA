@@ -7,11 +7,14 @@ package 예외처리기본;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ExceptionMain {
     public static void main(String[] args) {
         //fileNotFoundFunc();
-        nullPointerFunc();
+        //nullPointerFunc();
+        arithmeticFunc();
     }
     static void arrayExceptionFunc() {
         try {
@@ -41,6 +44,24 @@ public class ExceptionMain {
         }else {
             System.out.println("test 객체가 없습니다.");
         }
+    }
+    static void arithmeticFunc() {
+        Scanner sc = new Scanner(System.in);
+
+        int rst = 0;
+        try {
+            System.out.println("첫번째 값 : ");
+            int a = sc.nextInt();
+            System.out.println("두번째 값 : ");
+            int b = sc.nextInt();
+            rst = a / b;
+            System.out.println(rst);
+        } catch (ArithmeticException | InputMismatchException e) {
+            System.out.println(e + "오류 발생");
+        } finally {
+            System.out.println("무조건 수행되는 구문");
+        }
+
     }
 }
 
