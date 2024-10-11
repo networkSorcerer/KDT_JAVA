@@ -5,7 +5,11 @@ import java.io.IOException;
 public class ExceptionMain {
     public static void main(String[] args) throws IOException {
         IOSample ioSample = new IOSample();
-        ioSample.input();
+        try {
+            ioSample.input();
+        } catch (IOException e){
+            System.out.println("호출된 메서드에서 예외처리를 하지 않았기 때문에 호출된 예외처리");
+        }
         ioSample.output();
     }
 }
