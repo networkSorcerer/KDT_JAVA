@@ -16,6 +16,7 @@ public class WordSortMain {
         for (int i =0; i < word.length; i++ ) {
             word[i] = sc.nextLine();
         }
+        
         // set 컬렉션 : 순서를 보장하지 않음, 중복을 허용하지 않음
         // asList() : 배열을 컬렉션에 넣을 때 사용 하는 메서드
         HashSet<String> hashSet = new HashSet<>(Arrays.asList(word));
