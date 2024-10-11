@@ -10,10 +10,27 @@ public class TreadBasicEx {
     public static void main(String[] args) {
         Thread subThread1 = new CustomThread(); // Thread 를 상속 받은 객체 생성
         Runnable runTask = new CustomRunnable(); // 작업 내용은 가지고 있지만 실제 쓰레드 동작은 없음
+        Thread subThread2 = new Thread(runTask); // Thread 객체 생성
 
         subThread1.start();
+        subThread2.start();
         //System.out.println("여기는 메인 스레드가 끝나는 지점 입니다.");
 
+        // 익명의 객체로 만드는 방법
+
+        Runnable task = new Runnable() {
+            @Override
+            public void run() {
+                int sum = 0;
+                for(int i = 0; i <= 10; i++) {
+                    sum += i;
+                    System.out.println(Thread.currentThread() + " : "+ sum);
+                }
+                System.out.println(Thread.currentThread() + "최종 합 : " + sum);
+            }
+        };
+        Thread subThread3 = new Thread(task);
+        subThread3.start();
     }
 }
 
