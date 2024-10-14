@@ -12,30 +12,40 @@ package 람다표현식;
 
 interface Calculator {
     int sum(int a , int b); // 자동으로 public abstract 가 추가됨
+    int sub (int a, int b);
 }
-class MyCalculator implements Calculator {
-
-    @Override
-    public int sum(int a, int b) {
-        return a+b;
-    }
+//class MyCalculator implements Calculator {
+//
+//    @Override
+//    public int sum(int a, int b) {
+//        return a+b;
+//    }
+//}
+@FunctionalInterface
+interface MyFuncInterface {
+    public void method(int x);
 }
-//import java.util.function.BiFunction;
 
 public class LambdaEx {
     public static void main(String[] args) {
 
         // 객체 지향 문법을 사용해서 구현
         // MyCalculator 참조변소로 객체를 접근
-        MyCalculator calc = new MyCalculator();
+        // MyCalculator calc = new MyCalculator();
         // 인터페이스에서 상속받은 메서드인 sum 을 오버라이딩된 메서드를 호출
-        int rst = calc.sum(3,4);
-        System.out.println(rst);
+        // int rst = calc.sum(3,4);
+        // System.out.println(rst);
 
         // 람다 식으로 구현
-        Calculator mc = (int a, int b) -> a+b; // 인터페이스를 상속 받아 클래스 대신에 람다식으로 구현
-        int rst2 = mc.sum(30,40);
-        System.out.println(rst2);
+        // Calculator mc = (int a, int b) -> a+b; // 인터페이스를 상속 받아 클래스 대신에 람다식으로 구현
+        // int rst2 = mc.sum(30,40);
+        // System.out.println(rst2);
 
+        // 매개변수가 있는 람다식 사용
+        MyFuncInterface mi = x -> {
+            int rst = x * 5;
+            System.out.println(rst);
+        };
+        mi.method(100);
     }
 }
