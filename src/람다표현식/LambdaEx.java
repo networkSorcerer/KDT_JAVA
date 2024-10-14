@@ -26,6 +26,11 @@ interface MyFuncInterface {
     public void method(int x);
 }
 
+@FunctionalInterface
+interface MyFuncInter2 {
+    int min(int x, int y);
+}
+
 public class LambdaEx {
     public static void main(String[] args) {
 
@@ -47,5 +52,10 @@ public class LambdaEx {
             System.out.println(rst);
         };
         mi.method(100);
+
+        // 매개변수와 반환 값이 있는 람다식 구현
+        MyFuncInter2 mf2 = (x, y) -> x < y ? x : y; // 구현부가 한줄이면 {}생략 가능
+        System.out.println(mf2.min(3,4));
+
     }
 }
