@@ -20,11 +20,16 @@ public class JavaFinalReportMain {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+        // 스캐너 객체를 생성하는데, 입력을 파일에서 읽어 들임
         Scanner sc = new Scanner(inputStream);
+        // 10명의 데이터를 파일에서 읽어들여 객체로 만들어서 리스트에 저장
+        // 입력 순서대로 저장이 되고, 정렬을 위해서 sort() 메서드를 불러줘야 함
         List<Student> list = new ArrayList<>();
-        while (sc.hasNextLine()) {
-            String line = sc.nextLine();
-            String[] splitLine = line.split(" ");
+        while (sc.hasNextLine()) { // 읽어들일 라인이 있으면 true
+            String line = sc.nextLine(); // 문자열 한라인을 변수 (String)에 담음
+            String[] splitLine = line.split(" "); // 문자열을 공백 기준으로 잘라 문자열 배열을 생성
+            // 생성자를 통해서 Student 객체를 리스트에 추가
+            // 생성자의 매개변수로 전달되는 내용은 파일에서 읽어 들인 각 라인의 정보
             list.add(new Student(splitLine[0], Integer.parseInt(splitLine[1]),
                     Integer.parseInt(splitLine[2]), Integer.parseInt(splitLine[3])));
         }
