@@ -45,8 +45,17 @@ public class StreamMidEx {
         // sorted() : comparator 를 이용해 정렬
         Stream<String> stream7 = Stream.of("JAVA","HTML","JAVASCRIPT","CSS");
         Stream<String> stream8 = Stream.of("JAVA","HTML","JAVASCRIPT","CSS");
+        Stream<String> stream9 = Stream.of("JAVA","HTML","JAVASCRIPT","CSS");
+
         stream7.sorted().forEach(e-> System.out.print(e + " "));
         System.out.println();
+        // 내림차순
         stream8.sorted(Comparator.reverseOrder()).forEach(e->System.out.print(e+" "));
+        System.out.println();
+        // 길이 기준으로 정렬하고, 길이가 같으면 알파벳 정렬
+        stream9.sorted(Comparator
+                .comparingInt(String::length)
+                .thenComparing(String::compareTo))
+                .forEach(e->System.out.print(e+ " "));
     }
 }
